@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import { protect } from "./middleware/auth.js";
 
 dotenv.config();
 
@@ -21,9 +23,17 @@ app.use(
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "BookNest API is running"
+app.use("/api/auth", authRoutes);
+
+app.get("/api/auth/protected-test", protect, (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "You are authenticated!",
+    user: {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email
+    }
   });
 });
 
