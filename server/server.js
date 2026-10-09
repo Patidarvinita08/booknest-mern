@@ -5,6 +5,8 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/auth.js";
+import bookRoutes from "./routes/bookRoutes.js";
+import reviewRoutes from "./routes/reviewRoutes.js";
 
 dotenv.config();
 
@@ -24,6 +26,10 @@ app.use(
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+
+app.use("/api/books", bookRoutes);
+
+app.use("/api", reviewRoutes);
 
 app.get("/api/auth/protected-test", protect, (req, res) => {
   res.status(200).json({
