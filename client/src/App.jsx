@@ -5,6 +5,9 @@ import Register from "./pages/Register";
 import Books from "./pages/Books";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
+import BookDetail from "./pages/BookDetail";
+import MyReviews from "./pages/MyReviews";
+import AddBook from "./pages/AddBook";
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
         </Route>
 
         <Route path="*" element={<Navigate to="/books" replace />} />
+        <Route path="/books/:id" element={<BookDetail />} />
+        <Route path="/my-reviews" element={<MyReviews />} />
+        <Route path="/books/add" element={<AddBook />} />
       </Routes>
     </>
   );
