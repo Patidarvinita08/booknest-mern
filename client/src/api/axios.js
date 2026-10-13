@@ -2,13 +2,16 @@
 import axios from "axios";
 
 const configuredURL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api";
 
 const cleanURL = configuredURL.replace(/\/+$/, "");
 
 const baseURL = cleanURL.endsWith("/api")
   ? cleanURL
   : `${cleanURL}/api`;
+
+console.log("BookNest API base URL:", baseURL);
 
 const api = axios.create({
   baseURL,
