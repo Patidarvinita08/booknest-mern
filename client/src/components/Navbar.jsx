@@ -12,9 +12,10 @@ export default function Navbar() {
     };
 
     const linkClass = ({ isActive }) =>
-        `rounded-xl px-3 py-2 text-sm font-semibold transition ${isActive
-            ? "bg-violet-100 text-violet-700"
-            : "text-slate-600 hover:bg-fuchsia-50 hover:text-fuchsia-700"
+        `rounded-xl px-3 py-2 text-sm font-semibold transition ${
+            isActive
+                ? "bg-violet-100 text-violet-700"
+                : "text-slate-600 hover:bg-fuchsia-50 hover:text-fuchsia-700"
         }`;
 
     return (
@@ -24,8 +25,12 @@ export default function Navbar() {
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-500 text-xl text-white shadow-lg shadow-violet-500/25">
                         📚
                     </span>
+
                     <span className="text-xl font-extrabold tracking-tight text-slate-900">
-                        Book<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-fuchsia-500">Nest</span>
+                        Book
+                        <span className="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">
+                            Nest
+                        </span>
                     </span>
                 </Link>
 
@@ -34,6 +39,14 @@ export default function Navbar() {
                         <>
                             <NavLink to="/books" className={linkClass}>
                                 Explore
+                            </NavLink>
+
+                            <NavLink to="/my-reviews" className={linkClass}>
+                                My Reviews
+                            </NavLink>
+
+                            <NavLink to="/books/add" className={linkClass}>
+                                + Add Book
                             </NavLink>
 
                             <span className="hidden rounded-xl bg-purple-50 px-3 py-2 text-sm font-medium text-purple-700 md:block">
@@ -53,21 +66,12 @@ export default function Navbar() {
                                 Login
                             </NavLink>
 
-                            <NavLink to="/my-reviews" className={linkClass}>
-                                My Reviews
-                            </NavLink>
-
-                            <NavLink to="/books/add" className={linkClass}>
-                                + Add Book
-                            </NavLink>
-
                             <Link
                                 to="/register"
                                 className="rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-3 py-2 text-sm font-bold text-white shadow-md shadow-violet-500/20 transition hover:-translate-y-0.5 hover:shadow-lg sm:px-4"
                             >
                                 Join Us <span className="hidden sm:inline">↗</span>
                             </Link>
-
                         </>
                     )}
                 </div>
