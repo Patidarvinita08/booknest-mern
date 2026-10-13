@@ -240,3 +240,13 @@ Additional recommended checks include:
 ## 📄 License
 
 This project was developed as an internship assignment. Add a license file if you decide to distribute it under a specific open-source license.
+## Screenshots
+
+### Home Page
+![BookNest Home Page](./screenshots/home.png)
+
+### Book Details
+![Book Details and Reviews](./screenshots/book-details.png)
+
+### My Reviews
+![My Reviews](./screenshots/my-reviews.png)
